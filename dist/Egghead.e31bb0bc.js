@@ -5663,18 +5663,42 @@ exports.default = exports.gsap = gsapWithCSS;
 var _gsap = require("gsap");
 
 _gsap.TweenMax.set('#box', {
-  xPercent: -50,
-  yPercent: -50
+  width: '50px',
+  height: '50px',
+  x: '50px',
+  y: '50px'
+}); // document.addEventListener('mousemove', e => {
+//     const { clientX, clientY } = e;
+//     TweenMax.to('#box', 0.6, {
+//         x: clientX,
+//         y: clientY,
+//         rotation: "+=30"
+//     })
+// })
+
+
+var timeline = new _gsap.TimelineMax({
+  repeat: -1
 });
-
-document.addEventListener('click', function (e) {
-  var clientX = e.clientX,
-      clientY = e.clientY;
-
-  _gsap.TweenMax.to('#box', 1, {
-    x: clientX,
-    y: clientY
-  });
+timeline.pause();
+timeline.to('#box', .5, {
+  x: 100
+});
+timeline.to('#box', .5, {
+  y: 100
+});
+timeline.to('#box', .5, {
+  x: 50
+});
+timeline.to('#box', .5, {
+  y: 50
+});
+document.querySelector('#box').addEventListener('click', function () {
+  if (timeline.isActive()) {
+    timeline.pause();
+  } else {
+    timeline.resume();
+  }
 });
 },{"gsap":"node_modules/gsap/index.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
