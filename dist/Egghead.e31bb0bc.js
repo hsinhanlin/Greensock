@@ -5700,6 +5700,19 @@ document.querySelector('#box').addEventListener('click', function () {
     timeline.resume();
   }
 });
+document.addEventListener('wheel', function (e) {
+  if (e.wheelDelta > 0) {
+    // timeline.progress(timeline.progress() + 0.01)
+    _gsap.TweenMax.to(timeline, 1, {
+      progress: "+=0.1"
+    });
+  } else {
+    // timeline.progress(timeline.progress() - 0.01)
+    _gsap.TweenMax.to(timeline, 1, {
+      progress: "-=0.1"
+    });
+  }
+});
 },{"gsap":"node_modules/gsap/index.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

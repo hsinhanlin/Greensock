@@ -33,3 +33,13 @@ document.querySelector('#box').addEventListener('click', () => {
     }
 })
 
+document.addEventListener('wheel', e => {
+    if (e.wheelDelta > 0) {
+        // timeline.progress(timeline.progress() + 0.01)
+        TweenMax.to(timeline, 1, { progress: "+=0.1" })
+    } else {
+        // timeline.progress(timeline.progress() - 0.01)
+        TweenMax.to(timeline, 1, { progress: "-=0.1" })
+    }
+})
+
